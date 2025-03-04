@@ -1,0 +1,133 @@
+/* ------------------demo styles--------------------------- */
+.demo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  min-width: 300px;
+  /* min-height: 350px; */
+  color: hsl(0, 0%, 85%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #131313;
+}
+
+.demo-video {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #131313;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  gap: 20px;
+}
+
+.youtube-embed {
+  width: 100%;
+  max-width: 460px;
+  background-color: #131313;
+}
+
+.demo-text {
+  font-size: 15px;
+  width: 100%;
+  max-width: 250px;
+  min-width: 150px;
+  padding: 10px;
+  margin: 10px;
+  color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: start;
+  line-height: 1.5;
+}
+
+.demo-text h1 {
+  font-size: 35px;
+  min-height: 40px;
+  width: 100%;
+  margin-bottom: 7px;
+  color: #00ff26;
+}
+
+.demo-text p {
+  margin-top: 7px;
+}
+
+.demo-text span {
+  margin-top: 7px;
+  color: #00ff26;
+}
+
+.demo-video > button {
+  width: 130px;
+  height: 50px;
+  font-size: 15px;
+  justify-content: center;
+  background-color: #00ff26;
+  color: #131313;
+  align-items: center;
+  border-radius: 150px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.demo-video > button:focus,
+.demo-video > button:active {
+  outline: none;
+  text-decoration: none;
+}
+
+.demo-video > button:hover {
+  color: #00ff26;
+  background-color: #302f2f;
+  text-decoration: none;
+}
+
+.demo-video > button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ----------------------Media Queries for Responsiveness--------------------------- */
+@media (max-width: 768px) {
+  .demo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .demo-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .demo-video {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-text h1 {
+    font-size: 30px;
+  }
+
+  .demo-text p {
+    font-size: 14px;
+  }
+
+  .demo-video > button {
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+  }
+}

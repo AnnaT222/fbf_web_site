@@ -1,0 +1,99 @@
+/* -----------------language availability styles----------------------- */
+.language-availability {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start */
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+    color: hsl(0, 0%, 85%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .language-availability-text {
+    font-size: 15px;
+    width: 100%;
+    max-width: 270px;
+    min-width: 150px;
+    padding: 10px;
+    margin: 10px;
+    color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the start */
+    justify-content: flex-start; /* Align text to the start */
+    text-align: start;
+    line-height: 1.5;
+  }
+  
+  .language-availability-text h1 {
+    color: #00ff26;
+    font-size: 35px;
+    min-height: 35px;
+    width: 100%;
+    margin-bottom: 7px;
+  }
+  
+  .language-availability-text p {
+    margin-top: 7px;
+  }
+  
+  /* Add container for animation */
+  .language-availability-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /*--------------------------------- third animation------------------------------- */
+  @keyframes moveRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(250px);
+    }
+  }
+  
+  .rolling-circle {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #00ff26;
+    border-radius: 50%;
+    animation: moveRight 2.5s linear infinite;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* ----------------------Media Queries for Responsiveness--------------------------- */
+  @media (max-width: 768px) {
+    .language-availability {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .language-availability-text {
+      align-items: center;
+      text-align: center;
+    }
+  
+    .rolling-circle {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .language-availability-text h1 {
+      font-size: 30px;
+    }
+  }

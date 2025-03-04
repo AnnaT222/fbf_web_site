@@ -1,0 +1,119 @@
+body {
+  background-color: #131313;
+}
+
+/* ------------------brille board styles--------------------------- */
+.brille-board {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-width: 300px;
+  color: hsl(0, 0%, 85%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.brille-board > img {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+}
+
+.brille-board-text {
+  font-size: 15px;
+  width: 100%;
+  max-width: 250px;
+  min-width: 150px;
+  padding: 10px;
+  margin: 10px;
+  color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: start;
+  line-height: 1.5;
+}
+
+.brille-board-text h1 {
+  font-size: 35px;
+  min-height: 40px;
+  width: 100%;
+  margin-bottom: 7px;
+}
+
+.brille-board-text p {
+  margin-top: 7px;
+}
+
+.brille-board-text span {
+  margin-top: 7px;
+  color: #00ff26;
+}
+
+.brille-board-button > button {
+  width: 130px;
+  height: 50px;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 150px;
+}
+
+.brille-board-button > button:hover {
+  color: #00ff26;
+  background-color: #302f2f;
+}
+
+/* ----------------brille board features styles------------- */
+.brille-board-features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-width: 300px;
+  color: hsl(0, 0%, 85%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* ----------------------Media Queries for Responsiveness--------------------------- */
+@media (max-width: 768px) {
+  .brille-board {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brille-board-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .brille-board > img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brille-board-text h1 {
+    font-size: 30px;
+  }
+
+  .brille-board-text p {
+    font-size: 14px;
+  }
+
+  .brille-board-button > button {
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
