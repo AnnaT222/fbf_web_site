@@ -20,6 +20,7 @@ body {
 .brille-board > img {
   width: 100%;
   max-width: 460px;
+  background-color: #d9d9d9;
   height: auto;
 }
 
@@ -62,6 +63,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 150px;
+  transition: background-color 0.3s ease;
 }
 
 .brille-board-button > button:hover {

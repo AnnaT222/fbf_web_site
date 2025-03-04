@@ -29,6 +29,7 @@ nav ul li input {
   border-radius: 10px;
   width: 100px;
   height: auto;
+  transition: background-color 0.3s ease;
 }
 nav ul li input::placeholder {
   color: white;
@@ -44,6 +45,7 @@ nav ul li i {
   position: absolute;
   left: 120px;
   color: white;
+  transition: background-color 0.3s ease;
 }
 nav ul li i:hover {
   color: #00ff26;

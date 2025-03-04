@@ -1,127 +1,147 @@
+body {
+  background-color: #131313;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------email sign-up styles--------------------------- */
 .email-signup {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  color: hsl(0, 0%, 85%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+/* Adjust image for responsiveness */
+.email-signup-image img {
+  background-color: #d9d9d9;
+  width: 100%;
+  min-width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Adjust text container */
+.email-signup-text {
+  flex-grow: 1;
+  padding: 10px;
+  color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: start;
+  line-height: 1.5;
+  min-width: 300px;
+}
+
+.email-signup-text h1 {
+  font-size: 35px;
+  margin-bottom: 0.7rem;
+  color: #00ff26;
+}
+
+.email-signup-text p {
+  font-size: 15px;
+  margin-top: 7px;
+}
+
+/* Input and Button Styles */
+.email-signup-input input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  color: #d9d9d9;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.email-signup-input input:hover {
+  background-color: #1e1e1e;
+  border: 2px solid #00ff26;
+}
+
+.email-signup-button button {
+  width: 130px;
+  height: 50px;
+  font-size: 15px;
+  border-radius: 150px;
+  border: none;
+  background-color: #00ff26;
+  color: #131313;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.email-signup-button button:hover {
+  border: 2px solid #00ff26;
+  color: #00ff26;
+  background-color: #302f2f;
+}
+
+/* ----------------------Media Queries for Responsiveness--------------------------- */
+@media (max-width: 768px) {
+  .email-signup {
+    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
     padding: 20px;
-    background-color: #131313;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #d9d9d9;
-    font-family: Arial, Helvetica, sans-serif;
   }
-  
-  /* Image container for the email sign-up form */
+
   .email-signup-image img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-    margin-left: 20px;
-  }
-  
-  /* Text container for the email sign-up form */
-  .email-signup-text {
-    text-align: left;
     margin-bottom: 20px;
+    max-width: 100%;
   }
-  
+
+  .email-signup-text {
+    align-items: center;
+    text-align: center;
+  }
+
   .email-signup-text h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #00ff26;
+    font-size: 2rem;
   }
-  
+
   .email-signup-text p {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #d9d9d9;
+    font-size: 1rem;
   }
-  
-  /* Input container for the email sign-up form */
+
   .email-signup-input input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #d9d9d9;
-    border-radius: 5px;
-    background-color: #1e1e1e;
-    color: #d9d9d9;
-    font-size: 16px;
+    font-size: 1rem;
   }
-  
-  /* Button container for the email sign-up form */
+
   .email-signup-button button {
-    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .email-signup {
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #00ff26;
-    color: #131313;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
   }
-  
-  .email-signup-button button:hover {
-    background-color: #00cc20;
+
+  .email-signup-text h1 {
+    font-size: 1.8rem;
   }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 768px) {
-    .email-signup {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .email-signup-image img {
-      margin-left: 0;
-      margin-top: 20px;
-    }
-  
-    .email-signup-text {
-      text-align: center;
-    }
-  
-    .email-signup-text h1 {
-      font-size: 20px;
-    }
-  
-    .email-signup-text p {
-      font-size: 14px;
-    }
-  
-    .email-signup-input input {
-      font-size: 14px;
-    }
-  
-    .email-signup-button button {
-      font-size: 14px;
-    }
+
+  .email-signup-text p {
+    font-size: 0.9rem;
   }
-  
-  @media (max-width: 480px) {
-    .email-signup {
-      padding: 10px;
-    }
-  
-    .email-signup-text h1 {
-      font-size: 18px;
-    }
-  
-    .email-signup-text p {
-      font-size: 12px;
-    }
-  
-    .email-signup-input input {
-      font-size: 12px;
-    }
-  
-    .email-signup-button button {
-      font-size: 12px;
-    }
+
+  .email-signup-input input {
+    font-size: 0.9rem;
   }
+
+  .email-signup-button button {
+    font-size: 0.9rem;
+  }
+}

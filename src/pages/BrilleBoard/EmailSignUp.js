@@ -4,6 +4,8 @@ function EmailSignUp() {
     <div className="email-signup">
       <div className="email-signup-image">
         <img src="#" alt="Sign up" />
+      </div>
+
         <div>
           <div className="email-signup-text">
             <h1>Be the First to Experience the Braille Board!</h1>
@@ -19,7 +21,6 @@ function EmailSignUp() {
             <button>Submit</button>
           </div>
         </div>
-      </div>
     </div>
   );
 }

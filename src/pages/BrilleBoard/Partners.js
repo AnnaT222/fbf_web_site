@@ -1,11 +1,11 @@
-// import "Partners.css";
+import "./Partners.css";
 function Partners() {
   return (
-    <div>
-      <div>
+    <div className="partners">
+      <div className="partners-content">
         <h1>Our Partners in Creation</h1>
         <p>Built Together, For the Community</p>
-        <div>
+        <div className="partners-list">
           <div>
             <img src="#" alt="Sipan" />
             <p>Sipan</p>
@@ -34,13 +34,15 @@ function Partners() {
             </p>
           </div>
         </div>
-        <p>
-          "We believe that the best products are those created with the people
-          they are designed for. From day one, we've worked hand in hand with
-          visually impaired collaborators who have guided and shaped every step
-          of the Braille Board. Their insights, feedback, and dedication have
-          been instrumental in bringing this project to life."
-        </p>
+        <div className="partners-text">
+          <p>
+            "We believe that the best products are those created with the people
+            they are designed for. From day one, we've worked hand in hand with
+            visually impaired collaborators who have guided and shaped every
+            step of the Braille Board. Their insights, feedback, and dedication
+            have been instrumental in bringing this project to life."
+          </p>
+        </div>
       </div>
     </div>
   );

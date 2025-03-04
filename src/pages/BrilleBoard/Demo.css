@@ -78,6 +78,7 @@
   align-items: center;
   border-radius: 150px;
   text-decoration: none;
+  transition: background-color 0.3s ease;
   cursor: pointer;
 }
 

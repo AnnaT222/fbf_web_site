@@ -12,21 +12,21 @@ function Header() {
           <li>
             <Link to="/">Brille Board</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/multicub">Multi Cub</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/education">Education</Link>
           </li>
           <li>
             <Link to="/games">Games</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/community">Community</Link>
           </li>
           <li>
             <Link to="/podcast">Podcast</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/contactus">Contact Us</Link>
           </li>

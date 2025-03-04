@@ -16,11 +16,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<BrilleBoard />} />
-            <Route path="/multicub" element={<MultiCub />} />
+            {/* <Route path="/multicub" element={<MultiCub />} /> */}
             <Route path="/education" element={<Education />} />
             <Route path="/games" element={<Games />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/podcast" element={<Podcast />} />
+            {/* <Route path="/community" element={<Community />} /> */}
+            {/* <Route path="/podcast" element={<Podcast />} /> */}
             <Route path="/contactus" element={<ContactUs />} />
           </Route>
         </Routes>
