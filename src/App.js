@@ -8,12 +8,17 @@ import Games from "./pages/Games/Games";
 import Community from "./pages/Community/Community";
 import Podcast from "./pages/Podcast/Podcast";
 import ContactUs from "./pages/ContactUs/ContactUs";
+import Login from "./components/Login"; // Import the Login component
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          {/* Login Route (Accessible without layout) */}
+          <Route path="/login" element={<Login />} />
+
+          {/* Main Routes (Inside Layout) */}
           <Route path="/" element={<Layout />}>
             <Route index element={<BrilleBoard />} />
             {/* <Route path="/multicub" element={<MultiCub />} /> */}
@@ -28,4 +33,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
