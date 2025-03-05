@@ -3,7 +3,7 @@ import "./App.css";
 import Layout from "./Layout";
 import BrilleBoard from "./pages/BrilleBoard/BrilleBoard";
 import MultiCub from "./pages/MultiCub/MultiCub";
-import Education from "./pages/Education/Eduaction";
+import Education from "./pages/Education/Education";
 import Games from "./pages/Games/Games";
 import Community from "./pages/Community/Community";
 import Podcast from "./pages/Podcast/Podcast";
