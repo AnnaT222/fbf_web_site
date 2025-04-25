@@ -25,7 +25,7 @@ const Games = () => {
   // Fetch questions from API when component mounts
   useEffect(() => {
     axios
-      .get("https://your-api.com/questions")
+      .get("http://127.0.0.1:8000/api/millionaire/questions/")
       .then((response) => setQuestions(response.data))
       .catch((error) => console.error("Error fetching questions:", error));
   }, []);
