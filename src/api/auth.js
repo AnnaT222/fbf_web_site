@@ -12,8 +12,9 @@ export const login = async (email, password) => {
             {
                 headers: {
                     "Content-Type": "application/json",
+                    "Accept": "application/json",
                 },
-                withCredentials: false, // Change to true if backend supports cookies
+                withCredentials: false, // Keep this false unless backend supports cookies
             }
         );
 
@@ -21,18 +22,18 @@ export const login = async (email, password) => {
 
         const { access, refresh } = response.data;
 
-        // Ensure tokens are stored correctly
         if (access && refresh) {
             localStorage.setItem("accessToken", access);
             localStorage.setItem("refreshToken", refresh);
             console.log("Tokens saved successfully.");
         } else {
             console.error("Tokens missing in response:", response.data);
+            throw new Error("Authentication failed: No tokens received.");
         }
 
-        return response.data; // Return tokens
+        return response.data;
     } catch (error) {
-        console.error("Login error:", error.response ? error.response.data : error);
+        console.error("Login error:", error.response?.data || error.message);
         throw error;
     }
 };
