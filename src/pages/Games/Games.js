@@ -22,13 +22,17 @@ const Games = () => {
     askAudience: true,
   });
 
-  // Fetch questions from API when component mounts
-  useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/millionaire/questions/")
-      .then((response) => setQuestions(response.data))
-      .catch((error) => console.error("Error fetching questions:", error));
-  }, []);
+/* Fetch questions from API when component mounts
+//   useEffect(() => {
+//     axios
+ 
+//       .get("http://127.0.0.1:8000/questions")
+
+//       .get("http://127.0.0.1:8000/api/millionaire/questions/")
+//  deb464a2a8821b4cf315098a717f78a2a2baad9d
+//       .then((response) => setQuestions(response.data))
+//       .catch((error) => console.error("Error fetching questions:", error));
+   }, []);*/
 
   // Timer countdown
   useEffect(() => {
