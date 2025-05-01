@@ -12,10 +12,14 @@ export default function Education() {
 
   useEffect(() => {
     setLoading(true);
-    api.get("/api/lessons/")
-       .then(({ data }) => setCourses(Array.isArray(data) ? data : []))
-       .catch(() => setError("Cannot load lessons - check your token / server"))
-       .finally(() => setLoading(false));
+    api.get("/api/lessons/", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+      }
+    })
+    .then(({ data }) => setCourses(Array.isArray(data) ? data : []))
+    .catch(() => setError("Cannot load lessons - check your token / server"))
+    .finally(() => setLoading(false));    
   }, []);
 
   /* helpers */

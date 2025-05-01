@@ -1,7 +1,17 @@
 // src/components/LessonsList.jsx
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
+
+api.interceptors.request.use(
+    (config) => {
+      const token = localStorage.getItem("access_token");
+      if (token) config.headers.Authorization = `Bearer ${token}`;
+      return config;          // ← без этого запрос не уйдёт
+    },
+    (error) => Promise.reject(error)
+  );
+
 
 export default function LessonsList() {
   const [lessons, setLessons] = useState([]);
@@ -10,7 +20,10 @@ export default function LessonsList() {
 
   useEffect(() => {
     // Adjust this URL if your API is hosted elsewhere
-    axios.get("http://localhost:8000/api/lessons/")
+    api.get("http://localhost:8000/api/lessons/", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        }})
       .then(response => {
         setLessons(response.data);
         setLoading(false);
