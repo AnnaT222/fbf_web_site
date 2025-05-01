@@ -1,107 +1,63 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import api from "../../api/axios";
 
-const CourseDetail = ({ course, onClose, onComplete }) => {
-  const [showQuiz, setShowQuiz] = useState(false);
+export default function CourseDetail({ course, onClose, onComplete }) {
   const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState({});
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [answers,   setAnswers]   = useState({});
+  const [result,    setResult]    = useState(null);
+  const [loading,   setLoading]   = useState(true);
+  const [error,     setError]     = useState(null);
 
-  const API_URL = `https://your-api.com/courses/${course.id}/questions`; // Replace with actual API
-
+  /* fetch quiz questions for this lesson */
   useEffect(() => {
-    // Fetch course-related questions
-    axios.get(API_URL)
-      .then(response => {
-        if (Array.isArray(response.data)) {
-          setQuestions(response.data);
-        } else {
-          throw new Error("Invalid API response format.");
-        }
-      })
-      .catch(error => {
-        console.error("Error fetching quiz questions:", error);
-        setError("Failed to load quiz questions.");
-      })
-      .finally(() => setLoading(false));
+    setLoading(true);
+    api.get(`/api/lessons/${course.id}/questions/`)   // adjust to your real url
+       .then(({ data }) => setQuestions(Array.isArray(data) ? data : []))
+       .catch(() => setError("Cannot load quiz questions"))
+       .finally(() => setLoading(false));
   }, [course.id]);
 
-  // Handle answer selection
-  const handleAnswerSelect = (questionId, answer) => {
-    setAnswers(prev => ({ ...prev, [questionId]: answer }));
-  };
-
-  // Check answers
-  const checkAnswers = () => {
-    const allCorrect = questions.every(q => answers[q.id] === q.correctAnswer);
-    setResult(allCorrect ? "pass" : "fail");
+  /* helpers */
+  const choose = (qId, opt) => setAnswers((prev) => ({ ...prev, [qId]: opt }));
+  const submit = () => {
+    const ok = questions.every((q) => answers[q.id] === q.correct_answer);
+    setResult(ok ? "pass" : "fail");
+    if (ok) onComplete();          // unlock next course
   };
 
   return (
     <div className="course-detail-container">
-      <button className="close-button" onClick={onClose}>✖ Close</button>
-      <h1>{course.title}</h1>
+      <button onClick={onClose} className="close-button">✖</button>
+      <h1>{course.lesson_title}</h1>
 
-      {showQuiz ? (
-        <div className="quiz-container">
-          <h2>Final Quiz</h2>
-          {loading ? (
-            <p>Loading questions...</p>
-          ) : error ? (
-            <p className="error-text">{error}</p>
-          ) : (
-            <>
-              {questions.map((q, index) => (
-                <div key={q.id} className="quiz-question">
-                  <p><strong>{index + 1}. {q.text}</strong></p>
-                  {q.options.map((option, i) => (
-                    <button
-                      key={i}
-                      className={`quiz-option ${
-                        answers[q.id] === option ? "selected" : ""
-                      }`}
-                      onClick={() => handleAnswerSelect(q.id, option)}
-                    >
-                      {option}
-                    </button>
-                  ))}
-                </div>
-              ))}
-              <button className="submit-quiz" onClick={checkAnswers}>Submit Answers</button>
-            </>
-          )}
+      {loading && <p>Loading…</p>}
+      {error   && <p className="error-text">{error}</p>}
 
-          {result === "pass" && (
-            <div className="quiz-result success">
-              <p>✅ Congratulations! You passed the quiz!</p>
-              <button className="next-course" onClick={onComplete}>Proceed to Next Course</button>
-            </div>
-          )}
-
-          {result === "fail" && (
-            <div className="quiz-result fail">
-              <p>❌ You failed the quiz. Try again or review the course.</p>
-              <button className="retry-quiz" onClick={() => setResult(null)}>Retry Quiz</button>
-              <button className="review-course" onClick={() => setShowQuiz(false)}>Review Course</button>
-            </div>
-          )}
-        </div>
-      ) : (
+      {!loading && !error && (
         <>
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: "100%" }}></div>
-          </div>
+          <img src={course.lesson_image} alt={course.lesson_title} />
+          <p>{course.lesson_description}</p>
 
-          {course.image && <img src={course.image} alt={course.title} className="course-image" />}
-          <p className="course-text">{course.description}</p>
+          <h2>Quiz</h2>
+          {questions.map((q, idx) => (
+            <div key={q.id}>
+              <p><strong>{idx + 1}. {q.text}</strong></p>
+              {q.options.map((opt) => (
+                <button
+                  key={opt}
+                  className={answers[q.id] === opt ? "selected" : ""}
+                  onClick={() => choose(q.id, opt)}
+                >{opt}</button>
+              ))}
+            </div>
+          ))}
 
-          <button className="next-button" onClick={() => setShowQuiz(true)}>Take Quiz</button>
+          <button onClick={submit}>Submit answers</button>
+
+          {result === "pass" && <p>✅ You passed!</p>}
+          {result === "fail" && <p>❌ Try again</p>}
         </>
       )}
     </div>
   );
-};
-
-export default CourseDetail;
+}
