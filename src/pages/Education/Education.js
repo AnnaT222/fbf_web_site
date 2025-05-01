@@ -38,7 +38,6 @@ export default function Education() {
                 <div
                 key={c.id}
                 className={`course-card`}
-                onClick={() => completed.includes(c.id) && open(c)}
               >
                 <div className="course-card-content">
                   <img
@@ -48,7 +47,7 @@ export default function Education() {
                   />
                   <div className="course-info">
                     <h2>{c.lesson_title}</h2>
-                    <button>
+                    <button onClick={() => open(c)}>
                       Take
                     </button>
                   </div>
