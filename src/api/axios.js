@@ -3,13 +3,15 @@ import axios from "axios";
 const api = axios.create({
   baseURL: "http://127.0.0.1:8000", // change if needed
   headers: {
-    "Content-Type": "application/json",
+    Accept: "application/json",
   },
 });
 
 // attach the JWT automatically to every request
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("access_token");
+  const token = localStorage.getItem("accessToken");
+  console.log("Token:", token); // Debugging line to check the token value
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
