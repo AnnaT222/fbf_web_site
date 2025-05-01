@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api/axios";
-import CourseDetail from "./CourseDetail";
+import LessonModules from "./LessonModules";
 import "./Education.css";
 
 export default function Education() {
@@ -12,7 +12,8 @@ export default function Education() {
 
   useEffect(() => {
     setLoading(true);
-    api.get("/api/lessons/",)
+    api
+      .get("/api/lessons/")
       .then(({ data }) => setCourses(Array.isArray(data) ? data : []))
       .catch(() => setError("Cannot load lessons - check your token / server"))
       .finally(() => setLoading(false));
@@ -21,12 +22,15 @@ export default function Education() {
   /* helpers */
   const open = (course) => setSelected(course);
   const close = () => setSelected(null);
-  const done = (id) => { setCompleted([...completed, id]); close(); };
+  const done = (id) => {
+    setCompleted([...completed, id]);
+    close();
+  };
 
   return (
     <div className="education-container">
       {selected ? (
-        <CourseDetail course={selected} onClose={close} onComplete={() => done(selected.id)} />
+        <LessonModules lessonId={selected.id} onBack={close} />
       ) : (
         <>
           <h1>Education Courses</h1>
@@ -35,27 +39,22 @@ export default function Education() {
           {!loading && !error && (
             <div className="courses-grid">
               {courses.map((c) => (
-                <div
-                key={c.id}
-                className={`course-card`}
-              >
-                <div className="course-card-content">
-                  <img
-                    src={`http://127.0.0.1:8000/${c.lesson_image}`}
-                    alt={c.lesson_title}
-                    className="lesson-image"
-                  />
-                  <div className="course-info">
-                    <h2>{c.lesson_title}</h2>
-                    <button onClick={() => open(c)}>
-                      Take
-                    </button>
+                <div key={c.id} className={`course-card`}>
+                  <div className="course-card-content">
+                    <img
+                      src={`http://127.0.0.1:8000/${c.lesson_image}`}
+                      alt={c.lesson_title}
+                      className="lesson-image"
+                    />
+                    <div className="course-info">
+                      <h2>{c.lesson_title}</h2>
+                      <button onClick={() => open(c)}>Take</button>
+                    </div>
+                  </div>
+                  <div className="course-description">
+                    <p>{c.lesson_description}</p>
                   </div>
                 </div>
-                <div className="course-description">
-                  <p>{c.lesson_description}</p>
-                </div>
-              </div>
               ))}
             </div>
           )}
