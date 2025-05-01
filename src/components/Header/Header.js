@@ -22,11 +22,14 @@ function Header() {
 
   return (
     <header className="header">
+      <div className="logo">
+        <img src=".././images/logo.png" alt="Logo" />
+      </div>
       <nav className="navbar">
         <ul>
-          <li>
+          {/* <li>
             <img src=".././images" alt="Logo" />
-          </li>
+          </li> */}
           <li>
             <Link to="/">Brille Board</Link>
           </li>

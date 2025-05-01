@@ -6,27 +6,27 @@ function Partners() {
         <h1>Our Partners in Creation</h1>
         <p>Built Together, For the Community</p>
         <div className="partners-list">
-          <div>
+          <div className="partners-list-item">
             <img src="#" alt="Sipan" />
-            <p>Sipan</p>
+            <p className="name-paragraph">Sipan</p>
             <p>
               "Being part of the Braille Board project has been incredibly
               rewarding. It's a product that truly understands our needs and
               makes technology accessible in a whole new way."
             </p>
           </div>
-          <div>
+          <div className="partners-list-item">
             <img src="#" alt="Alla" />
-            <p>Alla</p>
+            <p className="name-paragraph">Alla</p>
             <p>
               "From the first prototype to the final design, I've seen how the
               Braille Board can change lives. It's empowering to know that our
               feedback shaped something so impactful."
             </p>
           </div>
-          <div>
+          <div className="partners-list-item">
             <img src="#" alt="Andranik" />
-            <p>Andranik</p>
+            <p className="name-paragraph" >Andranik</p>
             <p>
               "The collaboration with the team has been a journey of learning
               and innovation. Braille Board has made smartphone navigation so
@@ -35,7 +35,7 @@ function Partners() {
           </div>
         </div>
         <div className="partners-text">
-          <p>
+          <p style={{textAlign:"justify"}}>
             "We believe that the best products are those created with the people
             they are designed for. From day one, we've worked hand in hand with
             visually impaired collaborators who have guided and shaped every

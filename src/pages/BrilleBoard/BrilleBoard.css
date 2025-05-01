@@ -1,3 +1,7 @@
+*{
+  font-family: "arial", sans-serif;
+}
+
 .brille-board-features {
   display: flex;
   flex-direction: column;

@@ -60,8 +60,12 @@ const Games = () => {
 
   const handleAnswerClick = (answer) => {
     setSelectedAnswer(answer);
-
-    if (answer === questions[currentQuestionIndex].correctAnswer) {
+  
+    const currentQuestion = questions[currentQuestionIndex];
+    const correctOptionIndex = currentQuestion.correct_option; // This is 1-based index
+    const correctAnswerText = Object.keys(currentQuestion.options)[correctOptionIndex - 1]; // Get the key (answer text)
+  
+    if (answer === correctAnswerText) {
       setScore(score + 100); // Increase score
       setTimeout(() => {
         if (currentQuestionIndex + 1 < questions.length) {
@@ -78,6 +82,7 @@ const Games = () => {
       handleGameOver();
     }
   };
+  
 
   const handleGameOver = () => {
     setGameOver(true);

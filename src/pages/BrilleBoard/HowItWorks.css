@@ -96,6 +96,9 @@
     text-align: center;
   }
 }
+.how-it-works-last-part p{
+  color: #00ff26;
+}
 
 @media (max-width: 480px) {
   .how-it-works-text h1 {
