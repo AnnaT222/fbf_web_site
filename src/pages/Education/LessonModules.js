@@ -1,3 +1,4 @@
+// src/pages/Education/LessonModules.js
 import React, { useEffect, useState } from "react";
 import api from "../../api/axios";
 import "./LessonModules.css";
@@ -30,7 +31,7 @@ export default function LessonModules({ lessonId, onBack }) {
   };
 
   const currentSlide = currentModule?.slides?.[currentSlideIndex] || null;
-  const currentQuiz = currentSlide?.quizzes?.[0]; // assuming 1 quiz per slide
+  const currentQuiz = currentSlide?.quizzes?.[0];
 
   const handleNext = () => {
     if (showQuiz) {
@@ -53,40 +54,36 @@ export default function LessonModules({ lessonId, onBack }) {
     setQuizSubmitted(true);
   };
 
-  const isCorrect =
-    quizSubmitted && selectedOption === currentQuiz?.correct_option;
+  const isCorrect = quizSubmitted && selectedOption === currentQuiz?.correct_option;
 
   if (loading) return <h2>Loading modules...</h2>;
   if (error) return <h2 className="error-text">{error}</h2>;
 
   return (
     <div className="lesson-modules-container">
-      <button className="back-button" onClick={onBack}>
-        ← Back
-      </button>
+      <button className="back-button" onClick={onBack}>← Back</button>
+
       {!currentModule && !quizCompleted && <h1>Modules</h1>}
 
       {quizCompleted && <h2>🎉 Quiz Completed!</h2>}
 
-      {!currentModule &&
-        !quizCompleted &&
-        modules.map((module) => (
-          <div key={module.id} className="module-card">
-            <img
-              src={`http://127.0.0.1:8000${module.module_image}`}
-              alt={module.module_title}
-              className="module-image"
-            />
-            <h2>{module.module_title}</h2>
-            <p>{module.module_description}</p>
-            <button
-              className="start-module-button"
-              onClick={() => startModule(module)}
-            >
-              Start Module
-            </button>
-          </div>
-        ))}
+      {!currentModule && !quizCompleted && modules.map((module) => (
+        <div key={module.id} className="module-card">
+          <img
+            src={`http://127.0.0.1:8000${module.module_image}`}
+            alt={module.module_title}
+            className="module-image"
+          />
+          <h2>{module.module_title}</h2>
+          <p>{module.module_description}</p>
+          <button
+            className="start-module-button"
+            onClick={() => startModule(module)}
+          >
+            Start Module
+          </button>
+        </div>
+      ))}
 
       {currentModule && currentSlide && (
         <div className={`slide-container ${showQuiz ? "show-slide" : ""}`}>
@@ -97,27 +94,17 @@ export default function LessonModules({ lessonId, onBack }) {
                 alt={currentSlide.slide_title}
                 className="slide-image"
               />
-              <h2 style={{ color: "#000" }}>{currentSlide.slide_title}</h2>
-              <p style={{ color: "#000", fontSize: "18px" }}>
-                {currentSlide.slide_text}
-              </p>
-              <button className="next-slide" onClick={handleNext}>
-                Take Quiz
-              </button>
+              <h2 className="slide-title">{currentSlide.slide_title}</h2>
+              <p className="slide-text">{currentSlide.slide_text}</p>
+              <button className="take-quiz-btn" onClick={handleNext}>Take Quiz</button>
             </>
           ) : (
             <div className="quiz-section">
               <h3>{currentQuiz.question}</h3>
-              {[
-                currentQuiz.option1,
-                currentQuiz.option2,
-                currentQuiz.option3,
-              ].map((opt, idx) => (
+              {[currentQuiz.option1, currentQuiz.option2, currentQuiz.option3].map((opt, idx) => (
                 <button
                   key={idx}
-                  className={`quiz-option ${
-                    selectedOption === opt ? "selected" : ""
-                  }`}
+                  className={`quiz-option ${selectedOption === opt ? "selected" : ""}`}
                   onClick={() => setSelectedOption(opt)}
                   disabled={quizSubmitted}
                 >
@@ -135,13 +122,9 @@ export default function LessonModules({ lessonId, onBack }) {
               ) : (
                 <>
                   <p className={isCorrect ? "correct" : "wrong"}>
-                    {isCorrect
-                      ? "✅ Correct!"
-                      : "❌ Wrong. Correct: " + currentQuiz.correct_option}
+                    {isCorrect ? "✅ Correct!" : "❌ Wrong. Correct: " + currentQuiz.correct_option}
                   </p>
-                  <button className="next-slide" onClick={handleNext}>
-                    Next Slide
-                  </button>
+                  <button className="next-slide" onClick={handleNext}>Next Slide</button>
                 </>
               )}
             </div>

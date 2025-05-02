@@ -1,257 +1,76 @@
-/* Education Page Container */
 .education-container {
-  max-width: 100%;
-  margin: auto;
   padding: 40px 20px;
-  padding-left: 10em;
-  padding-right: 10em;
-  text-align: center;
-  }
-  
-  .education-container h1 {
-    font-size: 32px;
-    font-weight: bold;
-    color: #0f0; /* Neon green */
-    margin-bottom: 20px;
-  }
-  
-  /* Loading & Error Text */
-  .loading-text, .error-text {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    margin-top: 20px;
-  }
-  
-  /* Courses Grid */
-  .courses-grid {
-    width: 100%;
-    display: flex;
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    margin-top: 20px;
-  }
-  
-  /* Course Card */
-  .course-card {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 1rem;
-    padding: 1rem;
-    transition: 0.3s ease;
-    text-align: left;
-  }
-  
-  .course-card-content {
-    display: flex;
-    gap: 1rem;
-    align-items: left;
-  }
-  
-  .lesson-image {
-    width: auto;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-  }
-  
-  .course-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .course-info h2 {
-    font-size: 1.25rem;
-    margin: 0;
-    color: #ccc;
-  }
-  
-  .course-info button {
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .course-card button:disabled,
-  .course-card.locked button {
-    background-color: #999;
-    cursor: not-allowed;
-  }
-  
-  .course-description {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    color: #ccc;
-  }
-  
-  
-  /* Progress Bar */
-  .progress-bar {
-    width: 100%;
-    height: 10px;
-    background: #fff;
-    border-radius: 5px;
-    margin: 20px 0;
-    position: relative;
-  }
-  
-  .progress-fill {
-    height: 100%;
-    width: 50%;
-    background: #0f0;
-    border-radius: 5px;
-  }
-  
-  /* Course Image */
-  .course-image {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 10px;
-    margin: 20px 0;
-  }
-  
-  /* Course Text */
-  .course-text {
-    font-size: 18px;
-    color: #bbb;
-    margin-top: 20px;
-  }
-  
-  /* Next Button */
-  .next-button {
-    background: #0f0;
-    color: #000;
-    font-size: 18px;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    border: 2px solid #fff;
-    transition: all 0.3s;
-  }
-  
-  .next-button:hover {
-    background: #222;
-    color: #0f0;
-    border-color: #0f0;
-  }
+  max-width: 1200px;
+  margin: auto;
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+}
 
-  /* Quiz Container */
-.quiz-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .quiz-question {
-    background: #222;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-  
-  .quiz-option {
-    display: block;
-    width: 100%;
-    background: #0f0;
-    color: #000;
-    font-size: 18px;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin: 5px 0;
-    transition: 0.3s;
-  }
-  
-  .quiz-option:hover {
-    background: #222;
-    color: #0f0;
-  }
-  
-  .quiz-option.selected {
-    background: #0c0;
-    color: #fff;
-  }
-  
-  /* Quiz Result */
-  .quiz-result {
-    margin-top: 20px;
-  }
-  
-  .quiz-result.success {
-    color: #0f0;
-    font-weight: bold;
-  }
-  
-  .quiz-result.fail {
-    color: #ff0000;
-    font-weight: bold;
-  }
-  
-  /* Locked Courses */
-  .course-card.locked {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-  .course-card {
-    width: 29%;
-    padding: 1rem;
-    border: 1px solid #1aff00;
-    border-radius: 1rem;
-    background: #000;
-    transition: 0.3s ease;
-  }
-  
-  .course-card.locked {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  .lesson-image {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .course-card h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .course-card button {
-    width: 100%;
-    max-width: 150px;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #1aff00;
-    color: rgb(0, 0, 0);
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .course-card button:disabled,
-  .course-card.locked button {
-    background-color: #999;
-    cursor: not-allowed;
-  }
-  
-  .course-card p {
-    font-size: 0.95rem;
-    color: #444;
-  }
-  
+h1 {
+  text-align: center;
+  font-size: 32px;
+  color: lime;
+  margin-bottom: 30px;
+}
+
+.error-text {
+  color: red;
+  text-align: center;
+  font-size: 18px;
+}
+
+.courses-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.course-card {
+  background-color: #1a1a1a;
+  border: 2px solid lime;
+  border-radius: 16px;
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.course-card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.lesson-image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.course-info h2 {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.course-info button {
+  padding: 10px 20px;
+  background-color: lime;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.course-info button:hover {
+  background-color: #ccff00;
+}
+
+.course-description {
+  padding: 16px;
+  font-size: 14px;
+  color: #ccc;
+}
