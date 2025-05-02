@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Header.css";
+import logo from "./images/Generic avatar.png"; // Import your logo image
+import NavBarLogo from "./images/Logo_green.png";
 
 function Header() {
   const navigate = useNavigate();
@@ -23,7 +25,11 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <img src=".././images/logo.png" alt="Logo" />
+        <img
+          src={NavBarLogo}
+          alt="Logo"
+          style={{ width: "25px", height: "25px" }}
+        />
       </div>
       <nav className="navbar">
         <ul>
@@ -43,12 +49,23 @@ function Header() {
             <Link to="/contactus">Contact Us</Link>
           </li>
           <li>
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ width: "20px", height: "20px" }}
+              className="user-logo"
+            />
+          </li>
+          <li>
             {isAuthenticated ? (
               <button onClick={handleLogout} className="auth-button">
                 Logout
               </button>
             ) : (
-              <button onClick={() => navigate("/login")} className="auth-button">
+              <button
+                onClick={() => navigate("/login")}
+                className="auth-button"
+              >
                 Login
               </button>
             )}

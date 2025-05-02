@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 25px;
   
 }
 
@@ -28,22 +29,24 @@ nav ul li {
   position: relative;
 }
 
-nav ul li input {
+nav ul li button {
   background-color: #302f2f;
   border-radius: 10px;
   width: 100px;
   height: auto;
   transition: background-color 0.3s ease;
+  border: #00ff26 solid 1px;
 }
-nav ul li input::placeholder {
+nav ul li button::placeholder {
   color: white;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-nav ul li input:hover {
+nav ul li button:hover {
   border-color: #00ff26;
   background-color: black;
+  color: #00ff26;
 }
 nav ul li i {
   position: absolute;

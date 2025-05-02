@@ -53,7 +53,7 @@
   }
   
   .lesson-image {
-    width: 150px;
+    width: auto;
     height: 100px;
     object-fit: cover;
     border-radius: 0.5rem;
@@ -69,6 +69,7 @@
   .course-info h2 {
     font-size: 1.25rem;
     margin: 0;
+    color: #ccc;
   }
   
   .course-info button {
@@ -89,7 +90,7 @@
   .course-description {
     margin-top: 1rem;
     font-size: 0.95rem;
-    color: #444;
+    color: #ccc;
   }
   
   
@@ -205,9 +206,9 @@
   .course-card {
     width: 29%;
     padding: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #1aff00;
     border-radius: 1rem;
-    background: #fff;
+    background: #000;
     transition: 0.3s ease;
   }
   

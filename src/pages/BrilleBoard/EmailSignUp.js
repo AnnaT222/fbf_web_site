@@ -1,9 +1,11 @@
 import "./EmailSignUp.css";
+import BrailleBoardImage from "./images/Braille_board.png";
+
 function EmailSignUp() {
   return (
     <div className="email-signup">
       <div className="email-signup-image">
-        <img src="#" alt="Sign up" />
+        <img src={BrailleBoardImage} style={{backgroundColor:"#131313"}} alt="Sign up" />
       </div>
 
         <div>

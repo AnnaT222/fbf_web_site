@@ -1,4 +1,7 @@
 import "./Partners.css";
+import AndranikPic from "./images/andranik.jpg";
+import SipanPic from "./images/sipan.jpg";
+
 function Partners() {
   return (
     <div className="partners">
@@ -7,7 +10,7 @@ function Partners() {
         <p>Built Together, For the Community</p>
         <div className="partners-list">
           <div className="partners-list-item">
-            <img src="#" alt="Sipan" />
+            <img src={SipanPic} alt="Sipan" />
             <p className="name-paragraph">Sipan</p>
             <p>
               "Being part of the Braille Board project has been incredibly
@@ -16,17 +19,8 @@ function Partners() {
             </p>
           </div>
           <div className="partners-list-item">
-            <img src="#" alt="Alla" />
-            <p className="name-paragraph">Alla</p>
-            <p>
-              "From the first prototype to the final design, I've seen how the
-              Braille Board can change lives. It's empowering to know that our
-              feedback shaped something so impactful."
-            </p>
-          </div>
-          <div className="partners-list-item">
-            <img src="#" alt="Andranik" />
-            <p className="name-paragraph" >Andranik</p>
+            <img src={AndranikPic} alt="Andranik" />
+            <p className="name-paragraph">Andranik</p>
             <p>
               "The collaboration with the team has been a journey of learning
               and innovation. Braille Board has made smartphone navigation so
@@ -35,7 +29,7 @@ function Partners() {
           </div>
         </div>
         <div className="partners-text">
-          <p style={{textAlign:"justify"}}>
+          <p style={{ textAlign: "justify" }}>
             "We believe that the best products are those created with the people
             they are designed for. From day one, we've worked hand in hand with
             visually impaired collaborators who have guided and shaped every
@@ -47,4 +41,5 @@ function Partners() {
     </div>
   );
 }
+
 export default Partners;

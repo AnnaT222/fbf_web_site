@@ -1,9 +1,11 @@
 import "./BrilleBoardIntro.css";
+import BrailleBoardImage from "./images/braille.png";
+
 function BrilleBoardIntro() {
   return (
     <div>
       <div className="brille-board">
-        <img src="#" alt="Braille Board" />
+        <img src={BrailleBoardImage} alt="Braille Board" style={{backgroundColor:"#131313"}} />{" "}
         <div className="brille-board-text">
           <h1>Brille Board</h1>
           <span>Is your dream to be fast?</span>
