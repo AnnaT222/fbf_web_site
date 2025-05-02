@@ -46,6 +46,12 @@ export default function LessonModuleQuiz({ module, onBack }) {
             src={`http://127.0.0.1:8000${currentSlide.slide_image}`}
             alt={currentSlide.slide_title}
             className="slide-image"
+            style={{
+              width: "100%",
+              height: "auto",
+              maxHeight: "300px",
+              objectFit: "cover",
+            }}
           />
         )}
         <p className="slide-text">{currentSlide?.slide_text}</p>

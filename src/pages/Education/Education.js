@@ -1,3 +1,4 @@
+// src/pages/Education/Education.js
 import React, { useEffect, useState } from "react";
 import api from "../../api/axios";
 import LessonModules from "./LessonModules";
@@ -19,7 +20,6 @@ export default function Education() {
       .finally(() => setLoading(false));
   }, []);
 
-  /* helpers */
   const open = (course) => setSelected(course);
   const close = () => setSelected(null);
   const done = (id) => {
@@ -60,7 +60,6 @@ export default function Education() {
           )}
         </>
       )}
-      
     </div>
   );
 }
