@@ -4,6 +4,7 @@ import api from "../../api/axios";
 import "./MillionaireGame.css";
 import { FaPhone, FaUsers } from "react-icons/fa";
 import { GiSplitCross } from "react-icons/gi";
+import MillionaireImg from "./images/millionaire.jpg";
 
 export default function MillionaireGame() {
   const [questions, setQuestions] = useState([]);
@@ -122,7 +123,8 @@ export default function MillionaireGame() {
     <div className="millionaire-game-container">
       {!gameStarted ? (
         <div className="start-screen">
-          <h2>Who wants to become a millionaire?</h2>
+          <h2 style={{color:"lime"}}>Who wants to become a millionaire?</h2>
+          <img src={MillionaireImg} alt="Millionaire Game" />
           <p>Play and get to know the world in a new way</p>
           <button onClick={handleStart} className="start-btn">Start Game</button>
         </div>
