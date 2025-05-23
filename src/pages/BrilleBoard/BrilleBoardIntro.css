@@ -1,96 +1,116 @@
+html,
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   background-color: #131313;
+  font-family: "Arial", sans-serif;
+  color: #e0e0e0;
+  overflow-x: hidden;
 }
 
-/* ------------------brille board styles--------------------------- */
+/* Background glow effect (optional) */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 25% 50%,
+      rgba(0, 255, 38, 0.08),
+      transparent 40%
+    ),
+    radial-gradient(circle at 75% 25%, rgba(0, 255, 38, 0.08), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(0, 255, 38, 0.08), transparent 40%);
+  z-index: -1;
+}
+
+/* Main section */
 .brille-board {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  min-width: 300px;
-  color: hsl(0, 0%, 85%);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #131313;
 }
 
-.brille-board > img {
+/* Image block */
+.brille-board-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brille-board-image img {
   width: 100%;
   max-width: 460px;
-  background-color: #d9d9d9;
   height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  background-color: transparent;
 }
 
+/* Text block */
 .brille-board-text {
-  font-size: 15px;
-  width: 100%;
-  max-width: 250px;
-  min-width: 150px;
-  padding: 10px;
-  margin: 10px;
-  color: #d9d9d9;
+  flex: 1;
+  padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  justify-content: flex-start;
-  text-align: start;
-  line-height: 1.5;
+  text-align: left;
 }
 
 .brille-board-text h1 {
-  font-size: 35px;
-  min-height: 40px;
-  width: 100%;
-  margin-bottom: 7px;
-}
-
-.brille-board-text p {
-  margin-top: 7px;
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
 }
 
 .brille-board-text span {
-  margin-top: 7px;
   color: #00ff26;
-}
-
-.brille-board-button > button {
-  width: 130px;
-  height: 50px;
-  font-size: 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 150px;
-  transition: background-color 0.3s ease;
-}
-
-.brille-board-button > button:hover {
-  color: #00ff26;
-  background-color: #302f2f;
-}
-
-/* ----------------brille board features styles------------- */
-.brille-board-features {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  min-width: 300px;
-  color: hsl(0, 0%, 85%);
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  margin-top: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.brille-board-text p {
+  font-size: 18px;
+  line-height: 1.6;
   margin-bottom: 20px;
 }
 
-/* ----------------------Media Queries for Responsiveness--------------------------- */
-@media (max-width: 768px) {
+/* Button style */
+.brille-board-button button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.brille-board-button button:hover {
+  background-color: #00ff26;
+  color: #131313;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
   .brille-board {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
   .brille-board-text {
@@ -98,24 +118,11 @@ body {
     text-align: center;
   }
 
-  .brille-board > img {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 480px) {
   .brille-board-text h1 {
-    font-size: 30px;
+    font-size: 36px;
   }
 
   .brille-board-text p {
-    font-size: 14px;
-  }
-
-  .brille-board-button > button {
-    width: 100px;
-    height: 40px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
