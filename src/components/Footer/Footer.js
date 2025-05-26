@@ -48,16 +48,18 @@ function Footer() {
 
           <div className="footer-column">
             <h2 className="green-title">Company</h2>
-            {["Home", "Brille Board", "About Us", "Game", "Education"].map((text, i) => (
-              <div
-                key={i}
-                className="accessible-paragraph"
-                role="paragraph"
-                tabIndex="0"
-              >
-                {text}
-              </div>
-            ))}
+            {["Home", "Brille Board", "About Us", "Game", "Education"].map(
+              (text, i) => (
+                <div
+                  key={i}
+                  className="accessible-paragraph"
+                  role="paragraph"
+                  tabIndex="0"
+                >
+                  {text}
+                </div>
+              )
+            )}
           </div>
 
           <div className="footer-column">
@@ -73,16 +75,18 @@ function Footer() {
               </div>
             ))}
             <h2 className="green-title">Legal</h2>
-            {["Privacy and policy", "Terms of Donation and Discounts"].map((text, i) => (
-              <div
-                key={i + 10}
-                className="accessible-paragraph"
-                role="paragraph"
-                tabIndex="0"
-              >
-                {text}
-              </div>
-            ))}
+            {["Privacy and policy", "Terms of Donation and Discounts"].map(
+              (text, i) => (
+                <div
+                  key={i + 10}
+                  className="accessible-paragraph"
+                  role="paragraph"
+                  tabIndex="0"
+                >
+                  {text}
+                </div>
+              )
+            )}
           </div>
         </div>
 
@@ -102,7 +106,7 @@ function Footer() {
             <FaLinkedinIn />
           </a>
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@FBF-LLC"
             target="_blank"
             rel="noopener noreferrer"
           >
