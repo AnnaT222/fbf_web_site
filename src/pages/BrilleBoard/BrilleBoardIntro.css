@@ -1,67 +1,33 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #131313;
-  font-family: "Arial", sans-serif;
-  color: #e0e0e0;
-  overflow-x: hidden;
+/* Ensures symmetrical layout and spacing */
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
 }
 
-/* Background glow effect (optional) */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-      circle at 25% 50%,
-      rgba(0, 255, 38, 0.08),
-      transparent 40%
-    ),
-    radial-gradient(circle at 75% 25%, rgba(0, 255, 38, 0.08), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(0, 255, 38, 0.08), transparent 40%);
-  z-index: -1;
-}
-
-/* Main section */
 .brille-board {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  padding: 40px;
-  box-sizing: border-box;
   background-color: #131313;
-}
-
-/* Image block */
-.brille-board-image {
-  flex: 1;
+  color: #ffffff;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.brille-board-image img {
+  align-items: center;
   width: 100%;
-  max-width: 460px;
-  height: auto;
-  border-radius: 10px;
-  object-fit: contain;
-  background-color: transparent;
+  min-height: 100vh;
 }
 
-/* Text block */
-.brille-board-text {
-  flex: 1;
-  padding: 40px;
+.brille-board-left img {
+  max-width: 460px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.brille-board-right {
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,60 +35,64 @@ body::before {
   text-align: left;
 }
 
-.brille-board-text h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-  color: white;
-  font-weight: bold;
+.brille-board-right h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-.brille-board-text span {
+.brille-board-right span {
   color: #00ff26;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 16px;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
-.brille-board-text p {
-  font-size: 18px;
+.accessible-paragraph {
+  font-size: 1.125rem;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  outline: none;
 }
 
-/* Button style */
-.brille-board-button button {
+.brille-board-right button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
   background-color: white;
   color: black;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.brille-board-button button:hover {
+.brille-board-right button:hover {
   background-color: #00ff26;
   color: #131313;
 }
 
-/* Responsive styles */
+/* Responsive */
 @media (max-width: 900px) {
-  .brille-board {
+  .section-container {
     flex-direction: column;
     text-align: center;
+    align-items: center; /* ✅ center content inside column layout */
+    padding: 0 20px;
   }
 
-  .brille-board-text {
+  .brille-board-right {
     align-items: center;
+  }
+
+  .brille-board-right h1 {
+    font-size: 2rem;
+  }
+
+  .accessible-paragraph {
+    font-size: 1rem;
     text-align: center;
   }
 
-  .brille-board-text h1 {
-    font-size: 36px;
-  }
-
-  .brille-board-text p {
-    font-size: 16px;
+  .brille-board-left img {
+    max-width: 90%;
   }
 }

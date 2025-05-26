@@ -1,86 +1,98 @@
-/* ----------------------ergonomic styles-------------------- */
+/* ---------------------- Shared Container for All Sections ---------------------- */
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ---------------------- Ergonomic Section ---------------------- */
 .ergonomic {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
+  background-color: #131313;
+  margin: 0;
+}
+
+.ergonomic .section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 120px;
   width: 100%;
-  max-width: 800px;
-  min-width: 300px;
-  color: hsl(0, 0%, 85%);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .ergonomic-text {
-  font-size: 15px;
-  width: 100%;
-  max-width: 270px;
-  min-width: 150px;
-  padding: 10px;
-  margin: 10px;
-  color: #d9d9d9;
+  flex: 1;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  text-align: start;
-  line-height: 1.5;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .ergonomic-text h1 {
+  font-size: 48px;
+  font-weight: bold;
   color: #00ff26;
-  font-size: 35px;
-  min-height: 35px;
-  width: 100%;
-  margin-bottom: 7px;
+  margin-bottom: 20px;
 }
 
-.ergonomic-text p {
-  margin-top: 7px;
+.accessible-paragraph {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin: 0;
+  text-align: left;
+  outline: none;
 }
 
-/* -------------first animation----------------------- */
-@keyframes squareToCircle {
+.ergonomic-animation {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 200px;
+}
+
+.morph-shape {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #00ff26;
+  box-shadow: 0 0 25px 5px rgba(0, 255, 38, 0.3);
+  background-color: transparent;
+  border-radius: 0%;
+  animation: moveAndMorph 3s linear infinite alternate;
+}
+
+@keyframes moveAndMorph {
   0% {
+    transform: translateX(-120px);
+    border-radius: 0%;
+  }
+  50% {
     transform: translateX(0);
-    border-radius: 0;
-    border: 2px solid #00ff26;
+    border-radius: 25%;
   }
   100% {
-    transform: translateX(250px);
+    transform: translateX(120px);
     border-radius: 50%;
-    border: 2px solid #00ff26;
   }
 }
 
-.animated-square {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #00ff26;
-  border-radius: 0;
-  animation: squareToCircle 2.5s ease-in-out infinite; /* Increased duration and changed timing function */
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 50px;
-}
-
-/* -----------------Media Queries for Responsiveness--------------------- */
-@media (max-width: 768px) {
-  .brille-board {
-    flex-direction: column;
-    align-items: center;
-  }
-
+/* ------------------ Responsive ------------------ */
+@media (max-width: 900px) {
   .ergonomic {
+    padding: 60px 20px;
+  }
+
+  .ergonomic .section-container {
     flex-direction: column;
-    align-items: center;
+    gap: 60px;
   }
 
   .ergonomic-text {
@@ -88,24 +100,33 @@
     text-align: center;
   }
 
-  .animated-square {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .brille-board-text h1 {
-    font-size: 30px;
-  }
-
   .ergonomic-text h1 {
-    font-size: 30px;
+    font-size: 36px;
   }
 
-  .brille-board-button > button {
+  .accessible-paragraph {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .morph-shape {
     width: 100px;
-    height: 40px;
-    font-size: 13px;
+    height: 100px;
+    animation: moveAndMorphMobile 3s linear infinite alternate; /* ✅ use mobile version */
+  }
+
+  @keyframes moveAndMorphMobile {
+    0% {
+      transform: translateX(-60px);
+      border-radius: 0%;
+    }
+    50% {
+      transform: translateX(0);
+      border-radius: 25%;
+    }
+    100% {
+      transform: translateX(60px);
+      border-radius: 50%;
+    }
   }
 }

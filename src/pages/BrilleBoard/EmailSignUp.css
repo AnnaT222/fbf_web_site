@@ -4,71 +4,75 @@ body {
   padding: 0;
 }
 
-/* ------------------email sign-up styles--------------------------- */
+/* ------------------ Email Sign-Up Section ------------------ */
 .email-signup {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-  max-width: 800px;
-  margin: 40px auto;
+  justify-content: center;
+  gap: 120px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 60px auto;
   color: hsl(0, 0%, 85%);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-/* Adjust image for responsiveness */
+/* -------- Image Section -------- */
 .email-signup-image img {
-  background-color: #d9d9d9;
   width: 100%;
-  min-width: 300px;
+  max-width: 500px;
   height: auto;
   border-radius: 10px;
+  background-color: #131313;
 }
 
-/* Adjust text container */
-.email-signup-text {
-  flex-grow: 1;
-  padding: 10px;
-  color: #d9d9d9;
+/* -------- Text & Input Section -------- */
+.email-signup-right {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  text-align: start;
+  width: 100%;
+  max-width: 450px;
+  gap: 16px;
+}
+
+.email-signup-text {
+  text-align: left;
   line-height: 1.5;
-  min-width: 300px;
+  color: #d9d9d9;
 }
 
 .email-signup-text h1 {
   font-size: 35px;
-  margin-bottom: 0.7rem;
+  margin-bottom: 10px;
   color: #00ff26;
 }
 
-.email-signup-text p {
+.accessible-paragraph {
   font-size: 15px;
-  margin-top: 7px;
+  color: #d9d9d9;
+  outline: none;
 }
 
-/* Input and Button Styles */
+/* -------- Input & Button -------- */
 .email-signup-input input {
   width: 100%;
   padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #d9d9d9;
-  border-radius: 5px;
-  background-color: #1e1e1e;
-  color: #d9d9d9;
-  background-color: #d9d9d9;
+  font-size: 15px;
+  border: 2px solid #1e1e1e;
   border-radius: 20px;
-  transition: background-color 0.3s ease;
+  background-color: #131313;
+  border: 2px solid #00ff26;
+  color: #ffffff;
+  transition: all 0.3s ease;
 }
 
 .email-signup-input input:hover {
-  background-color: #1e1e1e;
-  border: 2px solid #00ff26;
+  background-color: #dbd4d4;
 }
 
 .email-signup-button button {
@@ -89,59 +93,46 @@ body {
   background-color: #302f2f;
 }
 
-/* ----------------------Media Queries for Responsiveness--------------------------- */
+/* ------------------ Responsive ------------------ */
 @media (max-width: 768px) {
   .email-signup {
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px;
+    gap: 40px;
   }
 
-  .email-signup-image img {
-    margin-bottom: 20px;
-    max-width: 100%;
-  }
-
-  .email-signup-text {
+  .email-signup-right {
     align-items: center;
     text-align: center;
   }
 
   .email-signup-text h1 {
-    font-size: 2rem;
+    font-size: 28px;
   }
 
-  .email-signup-text p {
-    font-size: 1rem;
+  .accessible-paragraph {
+    font-size: 14px;
   }
 
-  .email-signup-input input {
-    font-size: 1rem;
-  }
-
+  .email-signup-input input,
   .email-signup-button button {
-    font-size: 1rem;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .email-signup {
-    padding: 10px;
-  }
-
   .email-signup-text h1 {
-    font-size: 1.8rem;
+    font-size: 26px;
   }
 
-  .email-signup-text p {
-    font-size: 0.9rem;
-  }
-
-  .email-signup-input input {
-    font-size: 0.9rem;
+  .accessible-paragraph {
+    font-size: 13px;
   }
 
   .email-signup-button button {
-    font-size: 0.9rem;
+    width: 100px;
+    height: 40px;
+    font-size: 13px;
   }
 }

@@ -5,13 +5,18 @@ function LanguageAvailability() {
     <div className="language-availability">
       <div className="language-availability-text">
         <h1>Language Availability</h1>
-        <p>
+        <div
+          role="paragraph"
+          tabIndex="0"
+          aria-label="Language availability explanation"
+          className="accessible-paragraph"
+        >
           The keyboard has flexible software that allows you to add any
           language and make it more accessible.
-        </p>
+        </div>
       </div>
       <div className="language-availability-animation">
-        <div className="rolling-circle"></div>
+        <div className="rolling-circle" aria-hidden="true"></div>
       </div>
     </div>
   );

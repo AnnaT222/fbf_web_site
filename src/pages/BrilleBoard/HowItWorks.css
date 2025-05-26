@@ -3,113 +3,95 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.how-it-works-text {
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 800px;
-  min-width: 300px;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.how-it-works-text h1 {
-  color: #00ff26;
-  font-size: 35px;
-  min-height: 35px;
+  background-color: #131313;
+  color: hsl(0, 0%, 85%);
+  padding: 60px 0;
+  margin: 0 auto;
   width: 100%;
-  margin-bottom: 7px;
-  margin-top: 7px;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+.how-it-works h1 {
+  color: #00ff26;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .how-it-works-steps {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 300px;
-  color: #d9d9d9;
-  font-size: 15px;
-  gap: 20px;
-}
-.how-it-works-step > span {
-  font-size: 20px;
-}
-.how-it-works-image {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  gap: 40px;
   width: 100%;
-  max-width: 800px;
-  min-width: 300px;
-  height: auto;
+  max-width: 1000px;
+  flex-wrap: nowrap;
 }
 
+.how-it-works-step {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: start;
+}
+
+.how-it-works-step p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d9d9d9;
+  margin: 0;
+}
+
+.how-it-works-step span {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-right: 6px;
+}
+
+/* Hide extra image/last part */
+.how-it-works-image,
 .how-it-works-last-part {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #00ff26;
-  font-size: 15px;
-  max-width: 800px;
-  min-width: 300px;
-  min-height: auto;
+  display: none;
 }
 
-.how-it-works-last-part p {
-  margin: 5px 0;
-}
-
-/* ----------------------Media Queries for Responsiveness--------------------------- */
+/* ---------------------- Responsive ---------------------- */
 @media (max-width: 768px) {
   .how-it-works {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .how-it-works-text {
-    align-items: center;
-    text-align: center;
+    padding: 40px 20px;
   }
 
   .how-it-works-steps {
     flex-direction: column;
     align-items: center;
+    gap: 30px;
   }
 
-  .how-it-works-image {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .how-it-works-last-part {
-    align-items: center;
+  .how-it-works-step {
+    max-width: 100%;
     text-align: center;
   }
-}
-.how-it-works-last-part p{
-  color: #00ff26;
+
+  .how-it-works-step p {
+    text-align: center;
+  }
+
+  .how-it-works h1 {
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 480px) {
-  .how-it-works-text h1 {
-    font-size: 30px;
+  .how-it-works h1 {
+    font-size: 28px;
   }
 
-  .how-it-works-text p {
-    font-size: 14px;
+  .how-it-works-step p {
+    font-size: 13px;
   }
 
-  .how-it-works-last-part p {
-    font-size: 14px;
+  .how-it-works-step span {
+    font-size: 15px;
   }
 }
