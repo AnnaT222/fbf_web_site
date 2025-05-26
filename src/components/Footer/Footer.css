@@ -10,9 +10,6 @@
   margin: 0 auto;
   padding: 0 20px;
 }
-.footer .accessible-paragraph {
-  text-decoration: none;
-}
 
 .footer-top {
   display: flex;
@@ -24,7 +21,14 @@
 
 .footer-column {
   flex: start;
+  flex-direction: column;
   min-width: 220px;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .company-info .logo {
@@ -33,12 +37,14 @@
 
 .green-title {
   color: #00ff00;
+  text-align: start;
 }
 
 .footer-column .accessible-paragraph {
   font-size: 13px;
   line-height: 0.5;
   color: #d0d0d0;
+  text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
 }

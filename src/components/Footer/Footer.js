@@ -17,7 +17,6 @@ function Footer() {
             <img src={FBFLogo} alt="FBF Logo" className="logo" />
             <h2 className="green-title">FBF informations</h2>
 
-            {/* ✅ Clickable Google Maps link */}
             <div className="info-item">
               <FaMapMarkerAlt className="info-icon" />
               <a
@@ -32,7 +31,6 @@ function Footer() {
               </a>
             </div>
 
-            {/* ✅ Clickable email */}
             <div className="info-item">
               <FaEnvelope className="info-icon" />
               <a
