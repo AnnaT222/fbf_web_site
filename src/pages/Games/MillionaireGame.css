@@ -14,6 +14,14 @@
     align-items: center;
     gap: 16px;
   }
+
+  .start-screen img{
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    max-height: 300px;
+    margin-bottom: 20px;
+  }
   
   .start-btn,
   .back-btn,
@@ -121,4 +129,12 @@
     color: red;
     font-size: 20px;
   }
-  
+  .option-btn.correct {
+  background-color: #00ff00;
+  color: black;
+}
+
+.option-btn.wrong {
+  background-color: red;
+  color: white;
+}

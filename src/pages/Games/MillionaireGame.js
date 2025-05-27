@@ -77,10 +77,10 @@ export default function MillionaireGame() {
   };
 
   const currentQuestion = questions[currentIndex];
+  const correctKey = currentQuestion && Object.keys(currentQuestion.options)[currentQuestion.correct_option - 1];
 
   const handleAnswer = (optionKey) => {
     setSelected(optionKey);
-    const correctKey = Object.keys(currentQuestion.options)[currentQuestion.correct_option - 1];
 
     if (optionKey === correctKey) {
       const newScore = score + 1;
@@ -88,14 +88,12 @@ export default function MillionaireGame() {
       setFeedback("✅ Correct!");
       setShowNext(true);
 
-      // Save highest score
       if (newScore > highestScore) {
         setHighestScore(newScore);
         localStorage.setItem("highestScore", newScore.toString());
       }
     } else {
-      const correctText = Object.keys(currentQuestion.options)[currentQuestion.correct_option - 1];
-      setFeedback(`❌ Wrong! Correct answer: ${correctText}`);
+      setFeedback(`❌ Wrong! Correct answer: ${correctKey}`);
       setTimeout(() => setGameOver(true), 2000);
     }
   };
@@ -176,7 +174,9 @@ export default function MillionaireGame() {
               !eliminatedOptions.includes(key) && (
                 <button
                   key={key}
-                  className={`option-btn ${selected === key ? "selected" : ""}`}
+                  className={`option-btn 
+                    ${selected && key === correctKey ? "correct" : ""} 
+                    ${selected === key && key !== correctKey ? "wrong" : ""}`}
                   onClick={() => handleAnswer(key)}
                   disabled={!!selected}
                 >
