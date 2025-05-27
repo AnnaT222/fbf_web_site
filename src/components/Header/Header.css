@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: center;
   gap: 25px;
-  
 }
 
 nav ul {
@@ -29,41 +28,6 @@ nav ul li {
   position: relative;
 }
 
-nav ul li button {
-  background-color: #302f2f;
-  border-radius: 10px;
-  width: 100px;
-  height: auto;
-  transition: background-color 0.3s ease;
-  border: #00ff26 solid 1px;
-}
-nav ul li button::placeholder {
-  color: white;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-nav ul li button:hover {
-  border-color: #00ff26;
-  background-color: black;
-  color: #00ff26;
-}
-nav ul li i {
-  position: absolute;
-  left: 120px;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-nav ul li i:hover {
-  color: #00ff26;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    gap: 15px;
-  }
-}
-
 nav ul li a {
   color: white;
   text-decoration: none;
@@ -71,4 +35,78 @@ nav ul li a {
 
 nav ul li a:hover {
   color: #00ff26;
+}
+
+/* ----------- Buttons ----------- */
+nav ul li button {
+  background-color: #302f2f;
+  border-radius: 10px;
+  width: 100px;
+  padding: 6px 10px;
+  transition: background-color 0.3s ease;
+  border: #00ff26 solid 1px;
+  color: white;
+  cursor: pointer;
+}
+
+nav ul li button:hover {
+  border-color: #00ff26;
+  background-color: black;
+  color: #00ff26;
+}
+
+/* ----------- Dropdown Menu ----------- */
+.auth-wrapper {
+  position: relative;
+}
+
+.auth-dropdown {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: #1e1e1e;
+  border: 1px solid #00ff26;
+  border-radius: 10px;
+  z-index: 10;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+}
+
+.auth-dropdown button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.auth-dropdown button:hover {
+  background-color: #00ff26;
+  color: #131313;
+  border-radius: 5px;
+}
+
+/* ----------- User Icon ----------- */
+.user-logo {
+  width: 20px;
+  height: 20px;
+}
+
+/* ----------- Responsive ----------- */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 15px;
+  }
+
+  .auth-dropdown {
+    top: 40px;
+    right: auto;
+    left: 0;
+  }
 }

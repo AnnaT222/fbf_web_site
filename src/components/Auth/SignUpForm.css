@@ -1,0 +1,73 @@
+.signup-form {
+  background-color: #131313;
+  color: #d9d9d9;
+  border: 1px solid #00ff26;
+  border-radius: 16px;
+  padding: 30px 40px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signup-form h2 {
+  color: #00ff26;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.signup-form input {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  background-color: #1e1e1e;
+  color: white;
+  transition: border-color 0.3s;
+}
+
+.signup-form input:focus {
+  border: 1px solid #00ff26;
+  outline: none;
+}
+
+.signup-form .error {
+  color: red;
+  font-size: 13px;
+  margin-top: -8px;
+}
+
+.signup-form button {
+  background-color: #00ff26;
+  color: #131313;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-form button:hover {
+  background-color: #1e1e1e;
+  border: 1px solid #00ff26;
+  color: #00ff26;
+}
+
+.signup-form .back-button {
+  background-color: transparent;
+  border: none;
+  color: #d9d9d9;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.signup-form .back-button:hover {
+  color: #00ff26;
+}
