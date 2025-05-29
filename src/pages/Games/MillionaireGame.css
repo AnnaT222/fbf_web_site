@@ -138,3 +138,41 @@
   background-color: red;
   color: white;
 }
+.victory-screen {
+  background-color: black;
+  color: #00ff26;
+  text-align: center;
+  padding: 80px 20px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.victory-text {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.victory-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.victory-btn {
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #00ff26;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.victory-btn:hover {
+  background-color: #a6ff00;
+}

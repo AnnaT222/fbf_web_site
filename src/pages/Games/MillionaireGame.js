@@ -16,6 +16,7 @@ export default function MillionaireGame() {
   const [selected, setSelected] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
   const [score, setScore] = useState(0);
   const [showNext, setShowNext] = useState(false);
   const [feedback, setFeedback] = useState(null);
@@ -38,7 +39,7 @@ export default function MillionaireGame() {
         .then(({ data }) => {
           setQuestions(data);
         })
-        .catch((err) => {
+        .catch(() => {
           setError("Failed to load questions.");
         })
         .finally(() => setLoading(false));
@@ -56,7 +57,7 @@ export default function MillionaireGame() {
 
   const handleStart = () => {
     if (!isAuthenticated) {
-      setUnauthMessage("⚠️ You should sign up or log in to play.");
+      setUnauthMessage("\u26a0\ufe0f You should sign up or log in to play.");
       return;
     }
 
@@ -64,6 +65,7 @@ export default function MillionaireGame() {
     setScore(0);
     setCurrentIndex(0);
     setGameOver(false);
+    setGameWon(false);
     setSelected(null);
     setShowNext(false);
     setFeedback(null);
@@ -85,7 +87,7 @@ export default function MillionaireGame() {
     if (optionKey === correctKey) {
       const newScore = score + 1;
       setScore(newScore);
-      setFeedback("✅ Correct!");
+      setFeedback("\u2705 Correct!");
       setShowNext(true);
 
       if (newScore > highestScore) {
@@ -93,7 +95,7 @@ export default function MillionaireGame() {
         localStorage.setItem("highestScore", newScore.toString());
       }
     } else {
-      setFeedback(`❌ Wrong! Correct answer: ${correctKey}`);
+      setFeedback(`\u274c Wrong! Correct answer: ${correctKey}`);
       setTimeout(() => setGameOver(true), 2000);
     }
   };
@@ -108,17 +110,36 @@ export default function MillionaireGame() {
       setShowCall(false);
       setShowAudience(false);
     } else {
-      alert("🎉 You completed the game!");
-      setGameOver(true);
+      setGameWon(true);
     }
   };
 
-  const handleBack = () => {
-    setGameStarted(false);
-    setGameOver(false);
+  const playAgain = () => {
+    setGameWon(false);
+    setGameStarted(true);
+    setScore(0);
+    setCurrentIndex(0);
     setSelected(null);
     setFeedback(null);
     setShowNext(false);
+    setFiftyUsed(false);
+    setCallUsed(false);
+    setAudienceUsed(false);
+    setEliminatedOptions([]);
+    setShowCall(false);
+    setShowAudience(false);
+
+    setLoading(true);
+    api
+      .get("/api/millionaire/questions/")
+      .then(({ data }) => setQuestions(data))
+      .catch(() => setError("Failed to load new questions"))
+      .finally(() => setLoading(false));
+  };
+
+  const backToHome = () => {
+    setGameStarted(false);
+    setGameWon(false);
   };
 
   const useFiftyFifty = () => {
@@ -145,7 +166,15 @@ export default function MillionaireGame() {
 
   return (
     <div className="millionaire-game-container">
-      {!gameStarted ? (
+      {gameWon ? (
+        <div className="victory-screen">
+          <h1 className="victory-text">🎉 CONGRATULATIONS! YOU WON! 🎉</h1>
+          <div className="victory-buttons">
+            <button className="victory-btn" onClick={playAgain}>Play Again</button>
+            <button className="victory-btn" onClick={backToHome}>Back to Home</button>
+          </div>
+        </div>
+      ) : !gameStarted ? (
         <div className="start-screen">
           <h2 style={{ color: "lime" }}>Who wants to become a millionaire?</h2>
           <img src={MillionaireImg} alt="Millionaire Game" />
@@ -162,9 +191,9 @@ export default function MillionaireGame() {
         <h2 className="error-text">{error}</h2>
       ) : gameOver ? (
         <div className="game-over">
-          <h2>Game Over</h2>
+          <h2 style={{ color: "red" }}>Game Over</h2>
           <p>Your Score: {score}</p>
-          <button onClick={handleBack} className="back-btn">Back</button>
+          <button onClick={backToHome} className="back-btn">Back</button>
         </div>
       ) : currentQuestion ? (
         <div className="question-box">
@@ -191,7 +220,7 @@ export default function MillionaireGame() {
           {showAudience && (
             <div className="audience-results">
               {Object.entries(currentQuestion.options).map(([key, value], i) => (
-                <p key={i}>🗳 {key}: {value}%</p>
+                <p key={i}>🗳️ {key}: {value}%</p>
               ))}
             </div>
           )}
@@ -209,7 +238,7 @@ export default function MillionaireGame() {
 
           <div style={{ display: "flex", gap: "20px", marginTop: "20px" }}>
             {showNext && <button className="next-btn" onClick={handleNext}>Next</button>}
-            <button onClick={handleBack} className="back-btn">Leave Game</button>
+            <button onClick={backToHome} className="back-btn">Leave Game</button>
           </div>
         </div>
       ) : (
