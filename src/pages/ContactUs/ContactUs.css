@@ -1,0 +1,97 @@
+/* src/pages/AboutUs/ContactSection.css */
+.contact-section {
+  padding: 40px 20px;
+  background-color: #0d0d0d;
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.contact-title {
+  font-size: 28px;
+  color: #00ff00;
+  margin-bottom: 30px;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.contact-map {
+  flex: 1 1 360px;
+  box-shadow: 0 0 40px 12px #00ff00;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-form {
+  flex: 1 1 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: #00ff00;
+  text-align: left;
+  font-size: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #00ff00;
+  color: white;
+  padding: 10px 4px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-bottom: 1px solid #ccff00;
+  box-shadow: 0 2px 6px #00ff00;
+}
+
+.submit-btn {
+  background-color: #d9d9d9;
+  color: black;
+  font-weight: bold;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s;
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  background-color: #00ff00;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

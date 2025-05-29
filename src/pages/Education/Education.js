@@ -41,11 +41,11 @@ export default function Education() {
               {courses.map((c) => (
                 <div key={c.id} className={`course-card`}>
                   <div className="course-card-content">
-                    <img
+                    {/* <img
                       src={`http://127.0.0.1:8000/${c.lesson_image}`}
                       alt={c.lesson_title}
                       className="lesson-image"
-                    />
+                    /> */}
                     <div className="course-info">
                       <h2>{c.lesson_title}</h2>
                       <button onClick={() => open(c)}>Take</button>

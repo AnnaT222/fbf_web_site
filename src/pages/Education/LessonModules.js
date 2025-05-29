@@ -69,11 +69,11 @@ export default function LessonModules({ lessonId, onBack }) {
 
       {!currentModule && !quizCompleted && modules.map((module) => (
         <div key={module.id} className="module-card">
-          <img
+          {/* <img
             src={`http://127.0.0.1:8000${module.module_image}`}
             alt={module.module_title}
             className="module-image"
-          />
+          /> */}
           <h2>{module.module_title}</h2>
           <p>{module.module_description}</p>
           <button
@@ -89,11 +89,11 @@ export default function LessonModules({ lessonId, onBack }) {
         <div className={`slide-container ${showQuiz ? "show-slide" : ""}`}>
           {!showQuiz ? (
             <>
-              <img
+              {/* <img
                 src={`http://127.0.0.1:8000${currentSlide.slide_image}`}
                 alt={currentSlide.slide_title}
                 className="slide-image"
-              />
+              /> */}
               <h2 className="slide-title">{currentSlide.slide_title}</h2>
               <p className="slide-text">{currentSlide.slide_text}</p>
               <button className="take-quiz-btn" onClick={handleNext}>Take Quiz</button>
